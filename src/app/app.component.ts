@@ -23,22 +23,23 @@ export class AppComponent {
       data[2] = 0;
     }
 
-    if (this.value.trim().split(' ').length > 2) {
-      for (const word of this.value.trim().split(' ')) {
-        if (this.entitiesData.length) {
-          for (const data of this.entitiesData) {
-            if (data[0] == word) {
-              data[2] = ++data[2];
-            }
-          }
-        }
+    this.value = this.value.trim();
 
-        if (this.lsiData.length) {
-          for (const data of this.lsiData) {
-            if (data[0] == word) {
-              data[2] = ++data[2];
-            }
-          }
+    if (this.value.split(' ').length > 2) {
+      if (this.entitiesData.length) {
+        for (const data of this.entitiesData) {
+          console.log(data[0]);
+          // if (this.value.includes(data[0])) {
+          data[2] = this.value.split(data[0]).length - 1;
+          // }
+        }
+      }
+
+      if (this.lsiData.length) {
+        for (const data of this.lsiData) {
+          // if (this.value.includes(data[0])) {
+          data[2] = this.value.split(data[0]).length - 1;
+          // }
         }
       }
     }
