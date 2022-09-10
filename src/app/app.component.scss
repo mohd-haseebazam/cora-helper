@@ -1,0 +1,69 @@
+.header {
+  height: 50px;
+  background-color: blue;
+  color: white;
+  font-family: monospace;
+  font-size: 30px;
+  vertical-align: bottom;
+}
+
+h3 {
+  margin: 0;
+  padding: 3px;
+  padding-left: 15px;
+}
+
+.body {
+  padding: 15px;
+}
+
+button {
+  background: cornflowerblue;
+  margin-right: 10px;
+  color: whitesmoke;
+  height: 32px;
+  border: none;
+  border-radius: 3px;
+  width: 91px;
+  cursor: pointer;
+}
+
+input {
+  width: 14%;
+}
+
+table,
+thead,
+tbody,
+th,
+tr,
+td {
+  border: 1px solid #cfcaca;
+  border-collapse: collapse;
+}
+
+table {
+  font-family: monospace;
+  height: fit-content;
+  margin-top: 10px;
+}
+
+thead,
+tbody {
+  font-size: 15px;
+}
+
+tbody {
+  color: #2e2e2e;
+}
+
+th {
+  width: 85px;
+}
+
+.textarea-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
