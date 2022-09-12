@@ -48,8 +48,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let entity of entitiesData">
-            <td>{{ entity[0] }}</td>
-            <td>{{ entity[1] }}</td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.target }}</td>
             <td style="text-align: right">{{ entity.count || '' }}</td>
           </tr>
         </tbody>
@@ -64,8 +64,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let lsi of lsiData">
-            <td>{{ lsi[0] }}</td>
-            <td>{{ lsi[1] }}</td>
+            <td>{{ lsi.name }}</td>
+            <td>{{ lsi.target }}</td>
             <td style="text-align: right">{{ lsi.count || '' }}</td>
           </tr>
         </tbody>

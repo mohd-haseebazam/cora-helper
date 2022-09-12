@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cora-helper';
-  entitiesData: any[] = [];
-  lsiData: any[] = [];
+  entitiesData: {name: string, target: string, count: number}[] = [];
+  lsiData: {name: string, target: string, count: number}[] = [];
   tagTarget: any[] = [];
   entitiesHeader: any[] = [];
   lsiHeader: any[] = [];
@@ -39,13 +39,13 @@ export class AppComponent {
 
     if (this.entitiesData.length) {
       for (const data of this.entitiesData) {
-        data.count = this.value.split(data[0]).length - 1;
+        data.count = this.value.split(data.name.toLowerCase()).length - 1;
       }
     }
 
     if (this.lsiData.length) {
       for (const data of this.lsiData) {
-        data.count = this.value.split(data[0]).length - 1;
+        data.count = this.value.split(data.name.toLowerCase()).length - 1;
       }
     }
 
@@ -66,13 +66,13 @@ export class AppComponent {
           
             if(this.entitiesData.length) {
               for (const data of this.entitiesData) {
-                tag.ENTITIEScount += substr.split(data[0]).length - 1;
+                tag.ENTITIEScount += substr.split(data.name.toLowerCase()).length - 1;
               }
             }
 
             if(this.lsiData.length) {
               for (const data of this.lsiData) {
-                tag.LSIcount = substr.split(data[0]).length - 1;
+                tag.LSIcount = substr.split(data.name.toLowerCase()).length - 1;
               }
             }
           }
@@ -88,7 +88,7 @@ export class AppComponent {
     }
 
     for (const data of this.lsiData) {
-      this.lsiData += data.count;
+      this.lsiTotal += data.count;
     }
   }
 
@@ -119,28 +119,33 @@ export class AppComponent {
 
         switch (type) {
           case 'entities':
-            this.entitiesData = data;
-            console.log(this.entitiesData);
             this.entitiesHeader = headersRow;
-            for (const data of this.entitiesData) {
-              data.count = 0;
+            for (const x of data) {
+              this.entitiesData.push(
+                {
+                  name: x[0],
+                  target: x[1],
+                  count: 0
+                }
+              )
             }
-
             break;
 
           case 'lsi':
-            this.lsiData = data;
-            console.log(this.lsiData);
             this.lsiHeader = headersRow;
-            for (const data of this.lsiData) {
-              data.count = 0;
+            for (const x of data) {
+              this.lsiData.push(
+                {
+                  name: x[0],
+                  target: x[1],
+                  count: 0
+                }
+              )
             }
-
             break;
 
           case 'tagTarget':
             this.tagTarget = data;
-            console.log(this.tagTarget)
             this.tagTargetHeader = headersRow;
             for (const data of this.tagTarget) {
               data.QTYcount = 0;
