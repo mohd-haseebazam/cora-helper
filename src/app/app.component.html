@@ -4,21 +4,23 @@
   </div>
   <div class="body">
     <div style="margin: 10px 0px 30px 0px">
-      <input
-        #entitiesFile
-        type="file"
-        class="upload"
-        placeholder="add entities"
-      />
+      <input #entitiesFile type="file" class="upload" />
       <button
-        (click)="changeListener(entitiesFile, 'entities')"
         style="margin-right: 4%"
+        (click)="changeListener(entitiesFile, 'entities')"
       >
         Add entities
       </button>
 
-      <input #lsiFile type="file" class="upload" placeholder="add LSI" />
-      <button (click)="changeListener(lsiFile, 'lsi')">Add LSI</button>
+      <input #lsiFile type="file" class="upload" />
+      <button style="margin-right: 4%" (click)="changeListener(lsiFile, 'lsi')">
+        Add LSI
+      </button>
+
+      <input #tagTargetFile type="file" class="upload" />
+      <button (click)="changeListener(tagTargetFile, 'tagTarget')">
+        Tags Targets
+      </button>
     </div>
 
     <div class="textarea-table">
@@ -40,16 +42,15 @@
       <table class="entitiesTable" *ngIf="entitiesData.length">
         <thead>
           <tr>
-            <th>Entities</th>
-            <th>Target</th>
-            <th style="text-align: right">{{ entitiesTotal }}</th>
+            <th *ngFor="let header of entitiesHeader">{{ header }}</th>
+            <th style="text-align: right">{{ entitiesTotal || '' }}</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let entity of entitiesData">
             <td>{{ entity[0] }}</td>
             <td>{{ entity[1] }}</td>
-            <td style="text-align: right">{{ entity[2] }}</td>
+            <td style="text-align: right">{{ entity.count || '' }}</td>
           </tr>
         </tbody>
       </table>
@@ -57,16 +58,37 @@
       <table class="lsiTable" *ngIf="lsiData.length">
         <thead>
           <tr>
-            <th>LSI</th>
-            <th>Target</th>
-            <th style="text-align: right">{{ lsiTotal }}</th>
+            <th *ngFor="let header of lsiHeader">{{ header }}</th>
+            <th style="text-align: right">{{ lsiTotal || '' }}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let entity of entitiesData">
-            <td>{{ entity[0] }}</td>
-            <td>{{ entity[1] }}</td>
-            <td style="text-align: right">{{ entity[2] }}</td>
+          <tr *ngFor="let lsi of lsiData">
+            <td>{{ lsi[0] }}</td>
+            <td>{{ lsi[1] }}</td>
+            <td style="text-align: right">{{ lsi.count || '' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="tagTarget" *ngIf="tagTarget.length">
+        <thead>
+          <tr>
+            <th *ngFor="let header of tagTargetHeader">{{ header }}</th>
+            <th>QTY</th>
+            <th>ENTITIES</th>
+            <th>LSI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tagTarget of tagTarget">
+            <td>{{ tagTarget[0] }}</td>
+            <td>{{ tagTarget[1] }}</td>
+            <td>{{ tagTarget[2] }}</td>
+            <td>{{ tagTarget[3] }}</td>
+            <td style="text-align: right">{{ tagTarget.QTYcount || '' }}</td>
+            <td style="text-align: right">{{ tagTarget.ENTITIEScount || '' }}</td>
+            <td style="text-align: right">{{ tagTarget.LSIcount || '' }}</td>
           </tr>
         </tbody>
       </table>
