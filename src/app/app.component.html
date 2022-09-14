@@ -25,15 +25,11 @@
 
     <div class="textarea-table">
       <div>
-        <textarea
-          #textarea
-          rows="20"
-          cols="50"
-          placeholder=" enter your text"
-          style="display: block"
-        ></textarea>
+        <editor
+          [(ngModel)]="dataModel"
+        ></editor>
         <button
-          (click)="add(textarea.value)"
+          (click)="add()"
           style="float: right; margin: 0; margin-top: 10px"
         >
           Add
@@ -43,14 +39,14 @@
         <thead>
           <tr>
             <th *ngFor="let header of entitiesHeader">{{ header }}</th>
-            <th style="text-align: right">{{ entitiesTotal || '' }}</th>
+            <th style="text-align: right">{{ entitiesTotal || "" }}</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let entity of entitiesData">
             <td>{{ entity.name }}</td>
             <td>{{ entity.target }}</td>
-            <td style="text-align: right">{{ entity.count || '' }}</td>
+            <td style="text-align: right">{{ entity.count || "" }}</td>
           </tr>
         </tbody>
       </table>
@@ -59,14 +55,14 @@
         <thead>
           <tr>
             <th *ngFor="let header of lsiHeader">{{ header }}</th>
-            <th style="text-align: right">{{ lsiTotal || '' }}</th>
+            <th style="text-align: right">{{ lsiTotal || "" }}</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let lsi of lsiData">
             <td>{{ lsi.name }}</td>
             <td>{{ lsi.target }}</td>
-            <td style="text-align: right">{{ lsi.count || '' }}</td>
+            <td style="text-align: right">{{ lsi.count || "" }}</td>
           </tr>
         </tbody>
       </table>
@@ -86,9 +82,11 @@
             <td>{{ tagTarget[1] }}</td>
             <td>{{ tagTarget[2] }}</td>
             <td>{{ tagTarget[3] }}</td>
-            <td style="text-align: right">{{ tagTarget.QTYcount || '' }}</td>
-            <td style="text-align: right">{{ tagTarget.ENTITIEScount || '' }}</td>
-            <td style="text-align: right">{{ tagTarget.LSIcount || '' }}</td>
+            <td style="text-align: right">{{ tagTarget.QTYcount || "" }}</td>
+            <td style="text-align: right">
+              {{ tagTarget.ENTITIEScount || "" }}
+            </td>
+            <td style="text-align: right">{{ tagTarget.LSIcount || "" }}</td>
           </tr>
         </tbody>
       </table>

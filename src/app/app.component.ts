@@ -18,9 +18,11 @@ export class AppComponent {
   value: string = '';
   entitiesTotal: number = 0;
   lsiTotal: number = 0;
+  dataModel: string = '';
 
-  add(val: string) {
-    this.value = val.trim();
+  add() {
+    console.log(this.dataModel);
+    this.value = this.dataModel.trim();
     for (const data of this.entitiesData) {
       data.count = 0;
     }
