@@ -1,10 +1,19 @@
-.header {
+.header > h3 {
   height: 50px;
   background-color: blue;
   color: white;
   font-family: monospace;
   font-size: 30px;
   vertical-align: bottom;
+}
+
+.add-button {
+  float: right; margin: 0; margin-top: 10px
+}
+
+.add-button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
 }
 
 h3 {

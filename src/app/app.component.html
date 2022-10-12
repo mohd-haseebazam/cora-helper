@@ -25,12 +25,13 @@
 
     <div class="textarea-table">
       <div>
-        <editor
+        <!-- <editor
           [(ngModel)]="dataModel"
-        ></editor>
+        ></editor> -->
+        <div [ngxSummernote]="config" [(ngModel)]="dataModel"></div>
         <button
           (click)="add()"
-          style="float: right; margin: 0; margin-top: 10px"
+          class="add-button"
         >
           Add
         </button>

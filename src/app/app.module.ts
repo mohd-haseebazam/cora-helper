@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { EditorModule } from '@tinymce/tinymce-angular';
+import { NgxSummernoteModule } from 'ngx-summernote';
 
 registerLocaleData(en);
 
@@ -19,7 +19,7 @@ registerLocaleData(en);
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    EditorModule,
+    NgxSummernoteModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
